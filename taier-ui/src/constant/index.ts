@@ -385,7 +385,9 @@ export const DATA_SOURCE_TEXT: Partial<{ [key in DATA_SOURCE_ENUM]: string }> = 
 	[DATA_SOURCE_ENUM.HBASE]: 'HBase',
 	[DATA_SOURCE_ENUM.FTP]: 'FTP',
 	[DATA_SOURCE_ENUM.MAXCOMPUTE]: 'MaxCompute',
-	[DATA_SOURCE_ENUM.ES]: 'ElasticSearch',
+	[DATA_SOURCE_ENUM.ES]: 'ElasticSearch5.x',
+	[DATA_SOURCE_ENUM.ES6]: 'ElasticSearch6.x',
+	[DATA_SOURCE_ENUM.ES7]: 'ElasticSearch7.x',
 	[DATA_SOURCE_ENUM.REDIS]: 'Redis',
 	[DATA_SOURCE_ENUM.MONGODB]: 'MongoDB',
 	[DATA_SOURCE_ENUM.DB2]: 'DB2',
@@ -1036,13 +1038,20 @@ export const notSupportSourceTypesInScript = [
 	DATA_SOURCE_ENUM.DORIS,
 ];
 
-
 /**
  * @description 脚本模式下 选择目标时 不支持选择的数据源类型
  */
 export const notSupportTargetTypesInScript = [
-    DATA_SOURCE_ENUM.Kylin,
-    DATA_SOURCE_ENUM.INFLUXDB,
-    DATA_SOURCE_ENUM.IMPALA,
-    DATA_SOURCE_ENUM.INFLUXDB,
-]
+	DATA_SOURCE_ENUM.Kylin,
+	DATA_SOURCE_ENUM.INFLUXDB,
+	DATA_SOURCE_ENUM.IMPALA,
+	DATA_SOURCE_ENUM.INFLUXDB,
+];
+
+/**
+ * 数据同步任务 HBASE 是否行健二进制转换
+ */
+export const BINARY_ROW_KEY_FLAG = {
+	FALSE: '0',
+	TRUE: '1',
+} as const;
